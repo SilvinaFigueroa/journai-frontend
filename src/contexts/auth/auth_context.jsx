@@ -32,6 +32,7 @@ export const UserProvider = ({ children }) => {
     // SignUp Function
     const signUp = async (formData) => {
         try {
+            console.log (`formData to be sent: ${JSON.stringify(formData)}`)
             // Make a call to the backend                
             let response = await axios({
                 method: 'POST',

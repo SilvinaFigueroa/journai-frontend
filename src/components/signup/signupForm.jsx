@@ -6,7 +6,7 @@ const SignUp = ({ setNewUser }) => {
 
     const nav = useNavigate()
     // get the SignUp function from the auth_context
-    const { SignUp } = auth()
+    const { signUp } = auth()
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -33,7 +33,7 @@ const SignUp = ({ setNewUser }) => {
                 throw "Passwords don't match"
             else {
                 // signUp with the data from the form 
-                await SignUp(formData)
+                await signUp(formData)
                 // redirect the user to the journal page
                 nav('/journal')
             }
@@ -53,12 +53,13 @@ const SignUp = ({ setNewUser }) => {
         <div className="signUpForm">
             <h2>Sign Up</h2>
             <form autoComplete="off" onSubmit={handleSubmit}>
-                <input type="text" id='firstName' name='newName' placeholder="Name" required onChange={handleChange} />
-                <input type="text" id='lastName' name='newLastName' placeholder="Last Name" required onChange={handleChange} />
-                <input type="text" id='Location' name='Location' placeholder="Your location (City)" required onChange={handleChange} />
+            <input type="text" id='firstName' name='firstName' placeholder="Name" required onChange={handleChange} />
+                <input type="text" id='lastName' name='lastName' placeholder="Last Name" required onChange={handleChange} />
+                <input type="text" id='location' name='location' placeholder="Your location (City)" required onChange={handleChange} />
+                <input type="email" id='email' name='email' placeholder="Email" required onChange={handleChange} />
                 <input type="password" id="password" name="password" placeholder="Password" minLength={8} required onChange={handleChange} />
                 <input type="password" id="passwordVal" name="passwordVal" placeholder="Retry Password" minLength={8} required onChange={handleChange} />
-
+                
                 <button type="submit">Sign In</button>
             </form>
             <p>Already have an account? <button onClick={handleClick}>Log In</button></p>
