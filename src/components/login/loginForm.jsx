@@ -16,7 +16,7 @@ const LoginForm = ({ setNewUser }) => {
     // Setting the formData when the form fields change to update the State
     const handleChange = (event) => {
         setFormData({
-            ...FormData,
+            ...formData,
             // update form data --> field name : field value
             [event.target.name]: event.target.value
         })
@@ -24,6 +24,7 @@ const LoginForm = ({ setNewUser }) => {
 
     // When form is submited
     const handleSubmit = async (event) => {
+        console.log(`data to be sent for login ${JSON.stringify(formData)}`)
         event.preventDefault()
         await login(formData)
         console.log("Auth Sucessful")
@@ -41,7 +42,7 @@ const LoginForm = ({ setNewUser }) => {
             <h2>Login</h2>
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <input type="email" id="email" name="email" placeholder="Email" required onChange={handleChange} />
-                <input type="password" id="password" placeholder="Password" required minLength='6' onChange={handleChange} />
+                <input type="password" id="password" name='password' placeholder="Password" required minLength='6' onChange={handleChange} />
                 <button type="submit">Log In</button>
             </form>
             {/* Include SignUp button that toggles setNewUser */}
