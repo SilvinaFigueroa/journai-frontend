@@ -57,6 +57,7 @@ export const UserProvider = ({ children }) => {
     const value = useMemo(() => ({
         cookies, login, logOut, signUp
     }), [cookies])
+    
     // pass the cookie value (token) to the context provider
     return<AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
