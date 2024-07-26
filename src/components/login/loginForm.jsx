@@ -17,7 +17,7 @@ const LoginForm = ({ setNewUser }) => {
     const handleChange = (event) => {
         setFormData({
             ...FormData,
-            // update form data --> name : password
+            // update form data --> field name : field value
             [event.target.name]: event.target.value
         })
     }
