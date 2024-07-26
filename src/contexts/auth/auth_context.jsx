@@ -63,6 +63,6 @@ export const UserProvider = ({ children }) => {
 }
 
 // Invoke useContext in a function to be called in others components 
-export const useAuth = () => {
+export const auth = () => {
     return useContext(AuthContext)
 }
