@@ -5,6 +5,7 @@ import Journal from './pages/journal'
 import ProtectedRoutes from './components/ProtectedRoutes/auth'
 
 
+
 function App() {
 
   return (
