@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { auth } from "../../contexts/auth/auth_context"
+import { useAuth } from "../../contexts/auth/auth_context"
 
 const SignUp = ({ setNewUser }) => {
 
     const nav = useNavigate()
     // get the SignUp function from the auth_context
-    const { signUp } = auth()
+    const { signUp } = useAuth()
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -59,7 +59,7 @@ const SignUp = ({ setNewUser }) => {
                 <input type="email" id='email' name='email' placeholder="Email" required onChange={handleChange} />
                 <input type="password" id="password" name="password" placeholder="Password" minLength={8} required onChange={handleChange} />
                 <input type="password" id="passwordVal" name="passwordVal" placeholder="Retry Password" minLength={8} required onChange={handleChange} />
-                
+               
                 <button type="submit">Sign In</button>
             </form>
             <p>Already have an account? <button onClick={handleClick}>Log In</button></p>

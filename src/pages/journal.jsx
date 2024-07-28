@@ -1,16 +1,22 @@
-import { auth } from "../contexts/auth/auth_context"
+import { useAuth } from "../contexts/auth/auth_context"
+// import JournalEntry from "../components/journal/journalEntry"
 
 
 const Journal = () => {
-    const { logOut } = auth()
+    const { logOut , user} = useAuth()
+
+    console.log(`User ${JSON.stringify(user.firstName)}`)
 
     const handleClick = () => {
         logOut()
     }
+    
 
     return (
         <div>
-            <h2>Journal entry Page</h2>
+            <h1>{user ? `${user.firstName}'s Journal` : 'Journal'}</h1>
+
+            {/* <JournalEntry/> */}
             <button onClick={handleClick}>Logout</button>
         </div>
     )

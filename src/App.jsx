@@ -2,7 +2,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import LoginSignUp from './pages/login'
 import Journal from './pages/journal'
-import ProtectedRoutes from './components/ProtectedRoutes/auth'
+import ProtectedRoutes from './components/ProtectedRoutes/routesAuth'
 
 
 

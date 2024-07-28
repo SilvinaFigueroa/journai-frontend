@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { auth } from '../../contexts/auth/auth_context'
+import { useAuth } from '../../contexts/auth/auth_context'
 
 const LoginForm = ({ setNewUser }) => {
 
     const nav = useNavigate()
     // get the login function from the auth_context
-    const { login } = auth()
+    const { login } = useAuth()
     // useState to hold the data passed on the form
     const [formData, setFormData] = useState({
         email: '',
