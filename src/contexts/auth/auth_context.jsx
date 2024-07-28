@@ -91,26 +91,10 @@ export const UserProvider = ({ children }) => {
         setUser(null) // removing user data
     }
 
-    // get logged user data
-    const userLogged = async (userId) => {
-        try {
-            // Make a call to the backend                
-            let response = await axios.get(`http://localhost:3000/user/info/${userId}`, {
-                // get routes needs authentication token - check backend routes - 
-                headers: {
-                    'x-auth-token': cookies.token
-                }
-            })
-            setUser(response.data)
-
-        } catch (err) {
-            console.error(err)
-        }
-    }
 
     // With useMemo, the value object is only recreated when the user or token changes
     const value = useMemo(() => ({
-        login, logOut, signUp, userLogged, token: cookies.token, user
+        login, logOut, signUp, token: cookies.token, user
     }), [cookies.token, user])
 
     // pass the cookie value (token) to the context provider

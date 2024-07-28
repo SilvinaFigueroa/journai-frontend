@@ -5,8 +5,6 @@ import { useAuth } from "../contexts/auth/auth_context"
 const Journal = () => {
     const { logOut , user} = useAuth()
 
-    console.log(`User ${JSON.stringify(user.firstName)}`)
-
     const handleClick = () => {
         logOut()
     }
