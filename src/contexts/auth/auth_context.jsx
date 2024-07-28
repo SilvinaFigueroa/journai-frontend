@@ -12,7 +12,7 @@ export const AuthContext = createContext()
 export const UserProvider = ({ children }) => {
 
     //Create cookies
-    const [cookies, setCookies, removeCookie] = useCookies()
+    const [cookies, setCookies, removeCookie] = useCookies(["token"])
 
     //Create state for saving user data 
     const [user, setUser] = useState(null)
@@ -29,13 +29,12 @@ export const UserProvider = ({ children }) => {
             })
             // Set the recived token on the cookies
             console.log(`response axios login call ${JSON.stringify(response)}`)
-            setCookies('token', response.data)
+            console.log(`Token: ${response.data.token}`)
+            setCookies('token', response.data.token)
 
             //decode token to get user ID
-            console.log(JSON.stringify(`TOKEN login FE: : ${response.data.token}`))
             const decodedToken = jwtDecode(response.data.token)
 
-            console.log(`login FE: decodedToken ${decodedToken}`)
             console.log(`login FE: User ID ${decodedToken.user.id}`)
             console.log(`login FE: Name ${decodedToken.user.name}`)
             console.log(`login FE: Location ${decodedToken.user.location}`)
@@ -44,6 +43,7 @@ export const UserProvider = ({ children }) => {
             setUser({
                 id: decodedToken.user.id,
                 firstName: decodedToken.user.name,
+                email: decodedToken.user.email,
                 location: decodedToken.user.location
             })
 
@@ -76,6 +76,7 @@ export const UserProvider = ({ children }) => {
             setUser({
                 id: decodedToken.user.id,
                 firstName: decodedToken.user.name,
+                email: decodedToken.user.email,
                 location: decodedToken.user.location
             })
 
@@ -94,7 +95,7 @@ export const UserProvider = ({ children }) => {
 
     // With useMemo, the value object is only recreated when the user or token changes
     const value = useMemo(() => ({
-        login, logOut, signUp, token: cookies.token, user
+        login, logOut, signUp, token: cookies.token , user
     }), [cookies.token, user])
 
     // pass the cookie value (token) to the context provider

@@ -2,8 +2,10 @@ import weatherApi from "../api/weather.mjs"
 import { useState, useEffect } from 'react'
 
 
-const weather = ({city}) => {
+const weather = (city) => {
 
+  console.log(`City passed ${city}`)
+  
   const [weatherData, setWeatherData] = useState(null)
 
   useEffect(() => {
