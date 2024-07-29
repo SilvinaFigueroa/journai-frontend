@@ -1,5 +1,5 @@
 import { useAuth } from "../contexts/auth/auth_context"
-import JournalEntry from "../components/journal/journalEntry"
+import JournalEntry from "../components/journal/NewJournalEntry"
 
 
 const Journal = () => {

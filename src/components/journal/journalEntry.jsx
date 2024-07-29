@@ -1,123 +1,88 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuth } from '../../contexts/auth/auth_context'
-import weather from '../../hooks/weather'
 import axios from 'axios'
 
-const journalEntry = () => {
 
-    // get user data from context (token payload) and token for auth
-    const { token, user } = useAuth()
+const JournalEntry = ({ journal, onDelete, onUpdate }) => {
 
-    // Setting and handling Journal Entry and Mood from form fields
-    const [entry, setEntry] = useState("")
-    const [mood, setMood] = useState("")
+  // Create a state for the updated values, with the current value as default 
+  const [editedContent, setEditedContent] = useState(journal.content);
+  const [editedMood, setEditedMood] = useState(journal.inputMood);
+  const [editedLocation, setEditedLocation] = useState(journal.location)
 
-    const handleMoodChange = (event) => {
-        setMood(event.target.value)
+  // Boolean to manage the conditional rendering of the edit fields 
+  const [edit, setEdit] = useState(false)
+
+  const { token } = useAuth()
+
+  const handleDelete = async () => {
+
+    try {
+      await axios.delete(`http://localhost:3000/journal/delete/${journal._id}`,
+        {
+          headers: { 'x-auth-token': token }
+        })
+
+      onDelete(journal._id)
+
+    } catch (err) {
+      console.error(err)
+
     }
+  }
 
-    const handleEntryChange = (event) => {
-        setEntry(event.target.value)
+  const handleUpdate = async (event) => {
+    event.preventDefault()
+
+    try {
+
+      const response = await axios.put(`http://localhost:3000/journal/update/${journal._id}`,
+        {
+          content: editedContent,
+          inputMood: editedMood,
+          location: editedLocation
+        },
+        {
+          headers: { 'x-auth-token': token }
+        })
+
+        onUpdate(response.data)
+        setEdit(false) // Set value to false to hide the edit mode 
+
+    } catch (err) {
+      console.error(err)
+
     }
-
-    const email = user.email
-    console.log(`User email ${email}`)
-
-    const location = user.location
-    console.log(`Location ${location}`)
-
-    // get weather data from api using the weather hook 
-    const { weatherData } = weather(location);
-
-    console.log(`Weather data ${weatherData}`)
-    // ________________________________________________________________
+  }
 
 
-    const handleSubmit = async (event) => {
-        event.preventDefault() // prevent rendering when submiting form
+  return (
+    <>
+      <div>
+        {/* Conditional Rendering for edit journal record */}
+        {edit ? (
+          <form onSubmit={handleUpdate}>
+            <textarea value={editedContent} onChange={(e) => setEditedContent(e.target.value)} required />
+            <input value={editedMood} onChange={(e) => setEditedMood(e.target.value)} required />
+            <input value={editedLocation} onChange={(e) => setEditedLocation(e.target.value)} required />
 
-        console.log(`Token being sent: ${token}`);
-
-        try {
-            const response = await axios.post('http://localhost:3000/journal/new', {
-                email,
-                content: entry,
-                weatherData,
-                inputMood: mood,
-                location
-            }, {
-                headers: {
-                    'x-auth-token': token,
-                }
-            })
-
-            console.log(`Entry: ${response.data}`)
-
-        } catch (err) {
-            console.error(err)
-        }
-    }
-
-    return (
-
-        <>
-            <form onSubmit={handleSubmit}>
-                <div className='journalEntry'>
-                    <textarea value={entry} onChange={handleEntryChange} placeholder='Tell me about your day...!' required />
-                </div>
-                <div>
-                    <h3>Select your overall mood:</h3>
-                    <label>
-                        <input
-                            type="radio"
-                            value="Very Happy"
-                            checked={mood === 'Very Happy'}
-                            onChange={handleMoodChange}
-                        />
-                        Very Happy
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="Happy"
-                            checked={mood === 'Happy'}
-                            onChange={handleMoodChange}
-                        />
-                        Happy
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="Neutral"
-                            checked={mood === 'Neutral'}
-                            onChange={handleMoodChange}
-                        />
-                        Neutral
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="Sad"
-                            checked={mood === 'Sad'}
-                            onChange={handleMoodChange}
-                        />
-                        Sad
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="Very Sad"
-                            checked={mood === 'Very Sad'}
-                            onChange={handleMoodChange}
-                        />
-                        Very Sad
-                    </label>
-                </div>
-                <button type='submit'>Save Entry</button>
-            </form>
-        </>
-
-    )
+            <button type="submit">Save Editions</button>
+            {/* When cancel edition, set value to false to hide the edit mode  */}
+            <button type="button" onClick={() => setEdit(false)}>Cancel</button>
+          </form>
+        ) : (
+          <div>
+            <p>{journal.content}</p>
+            <p>{journal.inputMood}</p>
+            <p>{journal.location}</p>
+            {/* When click Edit Entry button, set edit value to true to show the edit mode  */}
+            <button onClick={() => setEdit(true)}>Edit Entry</button>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
+        )}
+      </div>
+    </>
+  )
 }
 
-export default journalEntry
+export default JournalEntry
