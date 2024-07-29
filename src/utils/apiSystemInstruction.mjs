@@ -15,7 +15,7 @@ Here are the specific instructions:
 Example format for the response:
 "Hi [User's Name], based on your journal entries over the past [time frame], we noticed that your mood tends to be [positive/negative/neutral] on [specific weather conditions] days. When it's [specific weather condition], you often write about [specific topics or sentiments]. Here are some suggestions to improve your wellbeing: [specific suggestions]. Remember, understanding these patterns can help you take proactive steps towards a healthier and happier life."
 
-Keep the tone friendly, supportive, and positive.
+Keep the tone friendly, supportive, and positive. You will send only one message, so don't ask further questions on the response. 
 `
 
 export default systemInstruction

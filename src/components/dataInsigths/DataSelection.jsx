@@ -4,10 +4,10 @@ import axios from "axios"
 import { useAuth } from "../../contexts/auth/auth_context"
 import calculateDateRange from '../../utils/calculateDateRange'
 
-import DataAnalized from "./dataAnalized"
+import DataAnalized from "./DataAnalized"
 
 
-const DataSummarized = () => {
+const DataSelection = () => {
     // get user data and token from context
     const { user, token } = useAuth()
     // journals entry per data range selected
@@ -44,7 +44,6 @@ const DataSummarized = () => {
 
     return (
         <>
-            <h1>Data Insigths</h1>
             <div>
                 <form onSubmit={handleSearch}>
                     <label>
@@ -84,4 +83,4 @@ const DataSummarized = () => {
     )
 }
 
-export default DataSummarized
+export default DataSelection
