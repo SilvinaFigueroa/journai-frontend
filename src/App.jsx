@@ -1,8 +1,9 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
+import ProtectedRoutes from './components/ProtectedRoutes/routesAuth'
+
 import LoginSignUp from './pages/login'
 import Journal from './pages/journal'
-import ProtectedRoutes from './components/ProtectedRoutes/routesAuth'
 import Insigths from './pages/insigths'
 
 

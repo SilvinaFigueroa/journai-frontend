@@ -11,7 +11,11 @@ const DataSelection = () => {
     // get user data and token from context
     const { user, token } = useAuth()
     // journals entry per data range selected
-    const [journalsEntry, setJournalsEntry] = useState([])
+    const [journalsEntry, setJournalsEntry] = useState("")
+
+    // loading state to track the api call start/end process
+    const [loading, setLoading] = useState(false)
+
 
     // Data range for the journal search and fetch 
     const [dataRange, setDataRange] = useState([])
@@ -25,6 +29,7 @@ const DataSelection = () => {
         const { startDate, endDate } = calculateDateRange(dataRange)
 
         try {
+            setLoading(true) // Set loading to true before starting the fetch
             const response = await axios.get('http://localhost:3000/journal/search', {
                 params: {
                     userReference: user.email,
@@ -36,7 +41,21 @@ const DataSelection = () => {
                 }
             })
             // Update state with data fetch from the database
-            setJournalsEntry(response.data)
+
+            //Error from Google Generative AI: request is not iterable
+            // The response needs to be converted into a single string:
+
+            const strJournals = response.data.map(journal =>
+                `Date: ${new Date(journal.updatedAt).toLocaleDateString()},
+                Content: ${journal.content}, Mood: ${journal.inputMood}, Location: ${journal.location}, 
+                Weather: ${journal.weatherData}, Date: ${new Date(journal.createdAt).toLocaleDateString()}`
+                ).join(" | ");
+
+            // Update state with concatenated journal entries
+            setJournalsEntry(String(strJournals))
+
+            setLoading(false) // Set loading to false after the fetch
+
         } catch (err) {
             console.error(err)
         }
@@ -77,7 +96,8 @@ const DataSelection = () => {
                 </form>
             </div>
             <div>
-                <DataAnalized journals={journalsEntry} />
+                {/* Conditional rendering: If journals data is fetched, pass it to DataAnalized component */}
+                {loading ? <p>Loading Data...</p> : journalsEntry.length > 0 && <DataAnalized journals={journalsEntry} />}
             </div>
         </>
     )
