@@ -19,7 +19,7 @@ const SearchJournal = () => {
     const handleSearch = async (event) => {
         event.preventDefault()
         try {
-            const response = await axios.get('http://localhost:3000/journal/search', {
+            const response = await axios.get('https://journai-backend.onrender.com/journal/search', {
                 params: {
                     userReference: user.email,
                     startDate,
@@ -40,7 +40,7 @@ const SearchJournal = () => {
     // After Delete or Edit a record, refresh the search data
     const refreshData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/journal/search', {
+            const response = await axios.get('https://journai-backend.onrender.com/journal/search', {
                 params: {
                     userReference: user.email,
                     startDate,

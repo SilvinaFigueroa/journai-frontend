@@ -18,7 +18,7 @@ const DataAnalized = ({ journals }) => {
         const apiCall = async () => {
             console.log(`API call triggered with journals: ${userName} - ${journals}`); // Debug log
             try {
-                const response = await geminiCall({ userName , journals });
+                const response = await geminiCall({ user , journals });
                 console.log("API response:", response); // Debug log
                 setApiResponse(response)
 

@@ -19,7 +19,7 @@ const JournalEntry = ({ journal, refreshData}) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3000/journal/delete/${journal._id}`,
+      await axios.delete(`https://journai-backend.onrender.com/journal/delete/${journal._id}`,
         {
           headers: { 'x-auth-token': token }
         })
@@ -37,7 +37,7 @@ const JournalEntry = ({ journal, refreshData}) => {
 
     try {
 
-      await axios.put(`http://localhost:3000/journal/update/${journal._id}`,
+      await axios.put(`https://journai-backend.onrender.com/update/${journal._id}`,
         {
           content: editedContent,
           inputMood: editedMood,

@@ -22,7 +22,8 @@ const generationConfig = {
 };
 
 
-const geminiCall = async ({ userName, journals }) => {
+const geminiCall = async ({ user, journals }) => {
+    console.log(`User Name on geminiCall ${user.firstName}`)
     try {
         console.log(`API called...`)
         const chatSession = model.startChat({
@@ -31,7 +32,7 @@ const geminiCall = async ({ userName, journals }) => {
             ]
         });
 
-        const result = await chatSession.sendMessage(`Analyze the following journal entries for ${userName} and identify patterns. Journals: ${journals}`);
+        const result = await chatSession.sendMessage(`Analyze the following journal entries for ${user.firstName} and identify patterns. Journals: ${journals}`);
         return result.response.text();
     } catch (err) {
         console.error('Error from Google Generative AI:', err.response ? err.response.data : err.message);

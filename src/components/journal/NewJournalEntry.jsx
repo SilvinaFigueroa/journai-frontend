@@ -39,7 +39,7 @@ const NewJournalEntry = () => {
         console.log(`Token being sent: ${token}`);
 
         try {
-            const response = await axios.post('http://localhost:3000/journal/new', {
+            const response = await axios.post('https://journai-backend.onrender.com/journal/new', {
                 email,
                 content: entry,
                 weatherData,
