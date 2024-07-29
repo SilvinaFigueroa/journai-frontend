@@ -45,7 +45,7 @@ const LoginForm = ({ setNewUser }) => {
         <div className="login-container">
             <div className="login-box">
                 <div className="login-left">
-                    <img src="src\images\background-login.svg" alt="Login" />
+                    <img src="src\images\animated-dots.svg" alt="Login" />
                 </div>
                 <div className="login-rigth">
                     <h2>Login</h2>

@@ -1,0 +1,157 @@
+
+body {
+    font-family: "Comfortaa", sans-serif;
+    background: linear-gradient(to right, #6874E7, #84CFAF);
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.signUp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.signUp-box {
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    width: 700px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-image: url('src/images/circles-dot.svg');
+    background-position:-85% -270%;
+    background-repeat: no-repeat;
+    background-size: 500px;
+}
+
+.signUp-left {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+h2 {
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #796f6f;
+}
+
+.input-group {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #d5afee;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.signUp-rigth{
+    width: 50%;
+    margin-left: 25%;
+}
+.signUp-btn {
+    width: 100%;
+    padding: 10px;
+    background: #20a4b6;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.signUp-btn:hover {
+    background:#84CFAF;
+}
+
+p {
+    margin-top: 10px;
+    text-align: center;
+    color: #666;
+}
+
+.login-btn {
+    width:fit-content;
+    padding: 10px;
+    margin: 2px;
+    background: #795fb4;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+}
+
+.login-btn:hover {
+    background: #84CFAF;
+}
+
+/* Responsiviness  */
+
+/* ------Tablets */
+@media (max-width: 834px) { 
+    .signUp-box {
+        width: 80%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .signUp-left, .signUp-right {
+        padding: 20px;
+    }
+
+    .signUp-left img {
+        display: none;
+    }
+
+    .login-right h2 {
+        font-size: 20px;
+    }
+
+    .input-group {
+        font-size: 14px;
+    }
+
+    .login-button, .signup-button {
+        font-size: 14px;
+    }
+    
+}
+
+/* ------Phones */
+@media (max-width: 360px) {
+    .signUp-left img {
+        width: 50%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .signUp-group {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .login-button, .signup-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}

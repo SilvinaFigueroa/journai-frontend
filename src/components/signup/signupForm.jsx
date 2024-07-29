@@ -53,22 +53,28 @@ const SignUp = ({ setNewUser }) => {
 
     return (
 
-        <div className="signUpForm">
-            <h2>Sign Up</h2>
-            <form autoComplete="off" onSubmit={handleSubmit}>
-            <input type="text" id='firstName' name='firstName' placeholder="Name" required onChange={handleChange} />
-                <input type="text" id='lastName' name='lastName' placeholder="Last Name" required onChange={handleChange} />
-                <input type="text" id='location' name='location' placeholder="Your location (City)" required onChange={handleChange} />
-                <input type="email" id='email' name='email' placeholder="Email" required onChange={handleChange} />
-                <input type="password" id="password" name="password" placeholder="Password" minLength={8} required onChange={handleChange} />
-                <input type="password" id="passwordVal" name="passwordVal" placeholder="Retry Password" minLength={8} required onChange={handleChange} />
-               
-                <button type="submit">Sign In</button>
-            </form>
-            <p>Already have an account? <button onClick={handleClick}>Log In</button></p>
+        <div className="signUp-container">
+            <div className="signUp-box">
+                {/* <div className="signUp-left">
+                    <img src="src\images\circles-dot.svg" alt="SignUp" />
+                </div> */}
+                <div className="signUp-rigth">
+                    <h2>Sign Up</h2>
+                    <form autoComplete="off" onSubmit={handleSubmit}>
+                        <input className="input-group" type="text" id='firstName' name='firstName' placeholder="Name" required onChange={handleChange} />
+                        <input className="input-group" type="text" id='lastName' name='lastName' placeholder="Last Name" required onChange={handleChange} />
+                        <input className="input-group" type="text" id='location' name='location' placeholder="Your location (City)" required onChange={handleChange} />
+                        <input className="input-group" type="email" id='email' name='email' placeholder="Email" required onChange={handleChange} />
+                        <input className="input-group" type="password" id="password" name="password" placeholder="Password" minLength={8} required onChange={handleChange} />
+                        <input className="input-group" type="password" id="passwordVal" name="passwordVal" placeholder="Retry Password" minLength={8} required onChange={handleChange} />
+
+                        <button className="signUp-btn" type="submit">Sign In</button>
+                    </form>
+                    <p>Already have an account? <button className="login-btn" onClick={handleClick}>Log In</button></p>
+                </div>
+            </div>
         </div>
     )
-
 }
 
 export default SignUp
