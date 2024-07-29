@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useAuth } from '../../contexts/auth/auth_context'
 
 // Components
-import JournalEntry from './JournalEntry'
+import JournalEntry from './journalEntry'
 
 const SearchJournal = () => {
 

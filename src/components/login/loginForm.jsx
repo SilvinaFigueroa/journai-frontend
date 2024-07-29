@@ -2,6 +2,10 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from '../../contexts/auth/auth_context'
 
+
+import './loginForm.css' //import styling css file
+
+
 const LoginForm = ({ setNewUser }) => {
 
     const nav = useNavigate()
@@ -38,15 +42,22 @@ const LoginForm = ({ setNewUser }) => {
     }
 
     return (
-        <div className="loginForm">
-            <h2>Login</h2>
-            <form autoComplete="off" onSubmit={handleSubmit}>
-                <input type="email" id="email" name="email" placeholder="Email" required onChange={handleChange} />
-                <input type="password" id="password" name='password' placeholder="Password" required minLength='6' onChange={handleChange} />
-                <button type="submit">Log In</button>
-            </form>
-            {/* Include SignUp button that toggles setNewUser */}
-            <p>Don't have and account? <button onClick={handleClick}>Sign Up</button> </p>
+        <div className="login-container">
+            <div className="login-box">
+                <div className="login-left">
+                    <img src="src\images\background-login.svg" alt="Login" />
+                </div>
+                <div className="login-rigth">
+                    <h2>Login</h2>
+                    <form autoComplete="off" onSubmit={handleSubmit}>
+                        <input className="input-group" type="email" id="email" name="email" placeholder="Email" required onChange={handleChange} />
+                        <input className="input-group" type="password" id="password" name='password' placeholder="Password" required minLength='6' onChange={handleChange} />
+                        <button className="login-button" type="submit">Log In</button>
+                    </form>
+                    {/* Include SignUp button that toggles setNewUser */}
+                    <p>Don't have and account? <button className="signup-button" onClick={handleClick}>Sign Up</button> </p>
+                </div>
+            </div>
         </div>
     )
 }

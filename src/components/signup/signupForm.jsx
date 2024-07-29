@@ -2,6 +2,9 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../contexts/auth/auth_context"
 
+import './signupForm.css' //import styling css file
+
+
 const SignUp = ({ setNewUser }) => {
 
     const nav = useNavigate()
