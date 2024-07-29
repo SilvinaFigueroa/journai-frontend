@@ -1,5 +1,5 @@
 import { useAuth } from "../contexts/auth/auth_context"
-import JournalEntry from "../components/journal/NewJournalEntry"
+import NewJournalEntry from "../components/journal/NewJournalEntry"
 
 
 const Journal = () => {
@@ -14,7 +14,7 @@ const Journal = () => {
         <div>
             <h1>{user ? `${user.firstName}'s Journal` : 'Journal'}</h1>
 
-            <JournalEntry/>
+            <NewJournalEntry/>
             <button onClick={handleClick}>Logout</button>
         </div>
     )

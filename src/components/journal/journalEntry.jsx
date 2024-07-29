@@ -3,7 +3,8 @@ import { useAuth } from '../../contexts/auth/auth_context'
 import axios from 'axios'
 
 
-const JournalEntry = ({ journal, onDelete, onUpdate }) => {
+const JournalEntry = ({ journal, token, refreshData}) => {
+  // journal: Contains the data for the journal entry
 
   // Create a state for the updated values, with the current value as default 
   const [editedContent, setEditedContent] = useState(journal.content);
@@ -22,8 +23,8 @@ const JournalEntry = ({ journal, onDelete, onUpdate }) => {
         {
           headers: { 'x-auth-token': token }
         })
-
-      onDelete(journal._id)
+        console.log(`Record Deleted`)
+        refreshData(); // Re-fetch data after deletion
 
     } catch (err) {
       console.error(err)
@@ -36,7 +37,7 @@ const JournalEntry = ({ journal, onDelete, onUpdate }) => {
 
     try {
 
-      const response = await axios.put(`http://localhost:3000/journal/update/${journal._id}`,
+      await axios.put(`http://localhost:3000/journal/update/${journal._id}`,
         {
           content: editedContent,
           inputMood: editedMood,
@@ -46,7 +47,8 @@ const JournalEntry = ({ journal, onDelete, onUpdate }) => {
           headers: { 'x-auth-token': token }
         })
 
-        onUpdate(response.data)
+        console.log(`Record Updated`)
+        refreshData(); // Re-fetch data after deletion
         setEdit(false) // Set value to false to hide the edit mode 
 
     } catch (err) {

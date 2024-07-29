@@ -3,7 +3,7 @@ import { useAuth } from '../../contexts/auth/auth_context'
 import weather from '../../hooks/weather'
 import axios from 'axios'
 
-const journalEntry = () => {
+const NewJournalEntry = () => {
 
     // get user data from context (token payload) and token for auth
     const { token, user } = useAuth()
@@ -120,4 +120,4 @@ const journalEntry = () => {
     )
 }
 
-export default journalEntry
+export default NewJournalEntry
