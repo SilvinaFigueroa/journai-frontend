@@ -58,7 +58,6 @@ const SearchJournal = () => {
         }
     }
 
-
     return (
 
         <>

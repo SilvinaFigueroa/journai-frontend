@@ -3,8 +3,9 @@ import { useAuth } from '../../contexts/auth/auth_context'
 import axios from 'axios'
 
 
-const JournalEntry = ({ journal, token, refreshData}) => {
+const JournalEntry = ({ journal, refreshData}) => {
   // journal: Contains the data for the journal entry
+  // refreshData: function to Re-fetch data after deletion to update search
 
   // Create a state for the updated values, with the current value as default 
   const [editedContent, setEditedContent] = useState(journal.content);
@@ -17,7 +18,6 @@ const JournalEntry = ({ journal, token, refreshData}) => {
   const { token } = useAuth()
 
   const handleDelete = async () => {
-
     try {
       await axios.delete(`http://localhost:3000/journal/delete/${journal._id}`,
         {
