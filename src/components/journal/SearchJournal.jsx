@@ -87,7 +87,6 @@ const SearchJournal = () => {
                 </div>
             </div>
         </>
-
     )
 }
 

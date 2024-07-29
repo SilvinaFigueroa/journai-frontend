@@ -1,7 +1,7 @@
 // Google Gemini Implementation
 
 import { GoogleGenerativeAI} from "@google/generative-ai";
-import systemInstruction from "./system_instruction"
+import systemInstruction from '../utils/apiSystemInstruction.mjs'
 
 // Use environment variables for API key
 const apiKey = import.meta.env.VITE_GOOGLE_GENERATIVE_AI_KEY
@@ -22,7 +22,7 @@ const generationConfig = {
 };
 
 
-const apiCall = async ({ user, message }) => {
+const geminiCall = async ({ user, message }) => {
     try {
         const chatSession = model.startChat({
             generationConfig,
@@ -45,4 +45,4 @@ const apiCall = async ({ user, message }) => {
 };
 
 
-export default apiCall
+export default geminiCall
