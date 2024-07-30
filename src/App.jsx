@@ -15,11 +15,13 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='login' element={<LoginSignUp />} />
+        {/* Including one route for login and another for SignUp to redirect navBar buttons */}
+        <Route path='/login' element={<LoginSignUp />} />
+        <Route path='/signup' element={<LoginSignUp />} />
         <Route element={<ProtectedRoutes />}>
           {/* Wrap protected content on the protected route */}
-          <Route path='journal' element={<Journal />} />
-          <Route path='insigths' element={<Insigths />} />
+          <Route path='/journal' element={<Journal />} />
+          <Route path='/insigths' element={<Insigths />} />
         </Route>
       </Routes>
     </>

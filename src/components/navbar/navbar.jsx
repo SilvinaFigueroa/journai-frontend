@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
@@ -31,10 +33,10 @@ const Navbar = () => {
             <a href="/insights" className={styles.NavbarLink}>Insights</a>
           </li>
           <li className={styles.NavbarItem}>
-            <a href="/signin" className={styles.NavbarButton}>Sign In</a>
+            <Link to="/login" className={styles.NavbarButton}>Login</Link>
           </li>
           <li className={styles.NavbarItem}>
-            <a href="/signup" className={styles.NavbarButtonPrimary}>Sign Up</a>
+            <Link to="/signup" className={styles.NavbarButtonPrimary}>Sign Up</Link>
           </li>
         </ul>
       </div>

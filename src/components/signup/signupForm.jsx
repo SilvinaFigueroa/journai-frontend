@@ -46,10 +46,10 @@ const SignUp = ({ setNewUser }) => {
         }
     }
 
-    // toggle to change the form
+
     const handleClick = () => {
-        setNewUser(false)
-    }
+        nav('/login')
+    } 
 
     return (
 

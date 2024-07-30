@@ -37,9 +37,8 @@ const LoginForm = ({ setNewUser }) => {
     }
 
     const handleClick = () => {
-        // toggle pass to login/signUp form
-        setNewUser(true)
-    }
+        nav('/signup')
+    } 
 
     return (
         <div className="login-container">
