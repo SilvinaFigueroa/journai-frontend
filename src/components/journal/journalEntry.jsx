@@ -38,7 +38,7 @@ const JournalEntry = ({ journal, refreshData }) => {
 
     try {
 
-      await axios.put(`https://journai-backend.onrender.com/update/${journal._id}`,
+      await axios.put(`https://journai-backend.onrender.com/journal/update/${journal._id}`,
         {
           content: editedContent,
           inputMood: editedMood,
