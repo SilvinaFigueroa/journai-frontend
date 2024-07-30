@@ -83,6 +83,9 @@ Technical Implementation
 
 -   **AI Implementation:**
     -   **Gemini 1.5 Pro:** Used for analyzing journal entries and providing personalized recommendations to enhance the user's wellbeing.
+ 
+    -   **Google Gemini** [Content License and Data Use](https://support.google.com/gemini/answer/13594961?hl=en#config_settings)
+        To help with quality and improve our products, human reviewers may read, annotate, and process your API input and output. Google takes steps to protect your privacy as part of this process. This includes disconnecting this data           from your Google Account and API key before reviewers see or annotate it. Do not submit sensitive, confidential, or personal information to the Services.
 -   **Weather API:** [Weather API](https://www.weatherapi.com/)
     -   Weather information is included in journal entries when saved, enabling correlations between weather and mood.
 
