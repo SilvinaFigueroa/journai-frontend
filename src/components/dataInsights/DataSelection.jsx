@@ -68,7 +68,7 @@ const DataSelection = () => {
             <div className={styles.dataSelectionContainer}>
                 <div className={styles.insightsContainer}>
                     <h1>Data Insights</h1>
-                    <img src="public\images\star.svg" alt="Star" className={styles.insightsImage} />
+                    <img src="/static/images/star.svg" alt="Star" className={styles.insightsImage} />
                 </div>
                 <p>
                     In this section, you can explore insights about your moods and emotions over time. <br />

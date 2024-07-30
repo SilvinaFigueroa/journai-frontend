@@ -54,7 +54,7 @@ const LoginForm = () => {
         <div className="login-container">
             <div className="login-box">
                 <div className="login-left">
-                    <img src="public\images\animated-dots.svg" alt="Login" />
+                    <img src="/static/images/animated-dots.svg" alt="Login" />
                 </div>
                 <div className="login-rigth">
                     <h2>Login</h2>
