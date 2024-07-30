@@ -25,8 +25,8 @@ const SearchJournal = () => {
             const response = await axios.get('https://journai-backend.onrender.com/journal/search', {
                 params: {
                     userReference: user.email,
-                    startDate,
-                    endDate
+                    startDate: new Date(startDate).toISOString().split('T')[0],
+                    endDate: new Date(endDate).toISOString().split('T')[0]
                 },
                 headers: {
                     'x-auth-token': token

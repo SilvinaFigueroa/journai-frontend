@@ -32,16 +32,11 @@ export const UserProvider = ({ children }) => {
                 data: formData
             })
             // Set the recived token on the cookies
-            console.log(`response axios login call ${JSON.stringify(response)}`)
-            console.log(`Token: ${response.data.token}`)
+
             setCookies('token', response.data.token)
 
             //decode token to get user ID
             const decodedToken = jwtDecode(response.data.token)
-
-            console.log(`login FE: User ID ${decodedToken.user.id}`)
-            console.log(`login FE: Name ${decodedToken.user.name}`)
-            console.log(`login FE: Location ${decodedToken.user.location}`)
 
             // Set user data from decoded token
             setUser({
@@ -59,7 +54,6 @@ export const UserProvider = ({ children }) => {
     // SignUp Function
     const signUp = async (formData) => {
         try {
-            console.log(`formData to be sent: ${JSON.stringify(formData)}`)
             // Make a call to the backend                
             let response = await axios({
                 method: 'POST',
@@ -71,10 +65,7 @@ export const UserProvider = ({ children }) => {
             setCookies('token', response.data.token)
 
             //decode token to get user ID
-            console.log(JSON.stringify(response.data.token))
             const decodedToken = jwtDecode(response.data.token)
-
-            console.log(JSON.stringify(decodedToken.user.id))
 
             // Set user data from decoded token
             setUser({

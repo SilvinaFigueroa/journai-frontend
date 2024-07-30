@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './Home.module.css'
 
@@ -10,7 +10,8 @@ const home = () => {
                 <div className={styles.BannerLeftSide}>
                     <h1>Discover How Data and AI Can Help You Know Yourself Better!</h1>
                     <p>Express your thoughts, track your moods, and uncover meaningful insights</p>
-                    <button>Join Journ AI Today</button>
+                    <Link to="/signup" className={styles.Bannerbutton}>Join Journ AI Today</Link>
+
                 </div>
                 <div className={styles.BannerRigthSide}>
                     <img src="src\images\hero-square.svg" alt="hero square image" />

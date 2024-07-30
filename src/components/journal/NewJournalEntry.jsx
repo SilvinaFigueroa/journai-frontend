@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../contexts/auth/auth_context'
-import weather from '../../hooks/weather'
 import axios from 'axios'
+import weatherApi from '../../api/weather.mjs'
 
 import styles from './Journal.module.css'
 
@@ -15,6 +15,9 @@ const NewJournalEntry = () => {
     const [entry, setEntry] = useState("")
     const [mood, setMood] = useState("")
 
+    // create a sucess message to display to the user 
+    const [successMessage, setSuccessMessage] = useState('');
+
     const handleMoodChange = (event) => {
         setMood(event.target.value)
     }
@@ -24,24 +27,21 @@ const NewJournalEntry = () => {
     }
 
     const email = user.email
-    console.log(`User email ${email}`)
 
     const location = user.location
     console.log(`Location ${location}`)
 
-    // get weather data from api using the weather hook 
-    const { weatherData } = weather(location);
-
-    console.log(`Weather data ${weatherData}`)
     // ________________________________________________________________
 
 
     const handleSubmit = async (event) => {
         event.preventDefault() // prevent rendering when submiting form
 
-        console.log(`Token being sent: ${token}`);
-
         try {
+
+            const weatherData = await weatherApi({ city: location })
+            console.log(`Weather data: ${weatherData}`)
+
             const response = await axios.post('https://journai-backend.onrender.com/journal/new', {
                 email,
                 content: entry,
@@ -54,10 +54,14 @@ const NewJournalEntry = () => {
                 }
             })
 
-            console.log(`Entry: ${response.data}`)
+            setSuccessMessage('Journal entry saved successfully!');
+            // Clear the form fields
+            setEntry('');
+            setMood('');
 
         } catch (err) {
             console.error(err)
+            setSuccessMessage('Failed to save the journal entry. Please try again.');
         }
     }
 
@@ -134,6 +138,10 @@ const NewJournalEntry = () => {
                     </div>
                     <button type='submit'>Save Entry</button>
                 </form>
+                {/* conditional rendering a sucess message */}
+                {successMessage && (
+                    <div className={styles.successMessage}>{successMessage}</div>
+                )}
             </div>
         </>
 

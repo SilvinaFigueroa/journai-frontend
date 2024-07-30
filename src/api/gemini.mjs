@@ -23,7 +23,6 @@ const generationConfig = {
 
 
 const geminiCall = async ({ user, journals }) => {
-    console.log(`User Name on geminiCall ${user.firstName}`)
     try {
         console.log(`API called...`)
         const chatSession = model.startChat({

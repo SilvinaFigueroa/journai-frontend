@@ -242,6 +242,20 @@
     padding-bottom: 0.5rem;
 }
 
+/* Journal creation message */
+
+.successMessage {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #d5afee;
+    border-radius: 10px;
+    background-color: #e0ffe0;
+    color: #008000;
+    font-size: 16px;
+    text-align: center;
+  }
+
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .journalContainer {

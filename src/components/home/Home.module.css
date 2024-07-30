@@ -5,9 +5,8 @@
 .BannerContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 2rem;
     margin: 2rem;
     flex-wrap: wrap;
 
@@ -16,6 +15,7 @@
 .BannerLeftSide {
     flex: 1;
     padding: 2rem;
+    margin-left: 10%;
 }
 
 .BannerLeftSide h1 {
@@ -32,7 +32,7 @@
     text-align: left;
 }
 
-.BannerLeftSide button {
+.Bannerbutton {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     color: #fff;
@@ -40,10 +40,11 @@
     border: none;
     border-radius: 15px;
     cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
-.BannerLeftSide button:hover {
+.Bannerbutton:hover {
     background-color: #3b9769;
 }
 
@@ -52,10 +53,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: -18%;
+
 }
 
 .BannerRigthSide img {
-    max-width: 100%;
+    max-width: 45%;
     height: auto;
     border-radius: 10px;
 }
