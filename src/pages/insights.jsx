@@ -1,5 +1,5 @@
 
-import DataSelection from "../components/dataInsigths/DataSelection"
+import DataSelection from "../components/dataInsights/DataSelection"
 
 const Insights = () => {
   return (

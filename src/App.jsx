@@ -1,6 +1,8 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import ProtectedRoutes from './components/ProtectedRoutes/routesAuth'
+import { Navigate } from "react-router-dom"
+
 
 import LoginSignUp from './pages/login'
 import Journal from './pages/journal'
@@ -15,9 +17,9 @@ function App() {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={<Home />} />
         {/* Including one route for login and another for SignUp to redirect navBar buttons */}
         <Route path='/login' element={<LoginSignUp />} />
         <Route path='/signup' element={<LoginSignUp />} />
@@ -26,8 +28,10 @@ function App() {
           <Route path='/journal' element={<Journal />} />
           <Route path='/insights' element={<Insights />} />
         </Route>
+        {/* Catch all unmatched routes and not auth and redirect to home */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, Navigate } from "react-router-dom"
 import { useAuth } from '../../contexts/auth/auth_context'
 
 const ProtectedRoutes = () => {
@@ -6,8 +6,8 @@ const ProtectedRoutes = () => {
     // fetch the cookies from AuthContext
     const { token } = useAuth()
 
-    // check cookie has a token and , otherwise reject
-    return token? <Outlet/> : <h1> Not Authorized -add redirect here- </h1>  
+    // check cookie has a token and , otherwise redirect to home page
+    return token? <Outlet/> : <Navigate to="/"/>  
 }
 
 export default ProtectedRoutes
