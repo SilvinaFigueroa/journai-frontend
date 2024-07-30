@@ -1,0 +1,30 @@
+.apiResponseContainer {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.apiResponseContainer h1 {
+    font-size: 2rem;
+    color: #8735bb;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.apiResponseContainer p {
+    margin-bottom: 1rem;
+}
+
+.apiResponseContainer ul {
+    padding-left: 1.5rem;
+}
+
+.apiResponseContainer li {
+    margin-bottom: 0.5rem;
+}

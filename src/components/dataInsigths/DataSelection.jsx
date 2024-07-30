@@ -6,6 +6,8 @@ import calculateDateRange from '../../utils/calculateDateRange'
 
 import DataAnalized from "./DataAnalized"
 
+import styles from './DataSelection.module.css'
+
 
 const DataSelection = () => {
     // get user data and token from context
@@ -49,7 +51,7 @@ const DataSelection = () => {
                 `Date: ${new Date(journal.updatedAt).toLocaleDateString()},
                 Content: ${journal.content}, Mood: ${journal.inputMood}, Location: ${journal.location}, 
                 Weather: ${journal.weatherData}, Date: ${new Date(journal.createdAt).toLocaleDateString()}`
-                ).join(" | ");
+            ).join(" | ");
 
             // Update state with concatenated journal entries
             setJournalsEntry(String(strJournals))
@@ -63,41 +65,45 @@ const DataSelection = () => {
 
     return (
         <>
-            <div>
-                <form onSubmit={handleSearch}>
-                    <label>
-                        <input
-                            type="radio"
-                            value="lastWeek"
-                            checked={dataRange === 'lastWeek'}
-                            onChange={handleRangeChange}
-                        />
-                        Last Week
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="lastMonth"
-                            checked={dataRange === 'lastMonth'}
-                            onChange={handleRangeChange}
-                        />
-                        Last Month
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="last6Months"
-                            checked={dataRange === 'last6Months'}
-                            onChange={handleRangeChange}
-                        />
-                        Last 6 Months
-                    </label>
+            <div className={styles.dataSelectionContainer}>
+                <h1>Data Insights</h1>
+                <h4>Select Data Range</h4>
+                <form className={styles.dataSelectionForm} onSubmit={handleSearch}>
+                    <div className={styles.radioGroup}>
+                        <label>
+                            <input
+                                type="radio"
+                                value="lastWeek"
+                                checked={dataRange === 'lastWeek'}
+                                onChange={handleRangeChange}
+                            />
+                            Last Week
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                value="lastMonth"
+                                checked={dataRange === 'lastMonth'}
+                                onChange={handleRangeChange}
+                            />
+                            Last Month
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                value="last6Months"
+                                checked={dataRange === 'last6Months'}
+                                onChange={handleRangeChange}
+                            />
+                            Last 6 Months
+                        </label>
+                    </div>
                     <button type="submit">Get Insights</button>
                 </form>
             </div>
             <div>
                 {/* Conditional rendering: If journals data is fetched, pass it to DataAnalized component */}
-                {loading ? <p>Loading Data...</p> : journalsEntry.length > 0 && <DataAnalized journals={journalsEntry} />}
+                {loading ? <p className={styles.loadingMessage} >Loading Data...</p> : journalsEntry.length > 0 && <DataAnalized journals={journalsEntry} />}
             </div>
         </>
     )

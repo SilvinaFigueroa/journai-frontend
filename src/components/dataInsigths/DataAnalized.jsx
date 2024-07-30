@@ -5,6 +5,9 @@ import ReactMarkdown from 'react-markdown' // import markdown for formatting api
 
 import { useAuth } from '../../contexts/auth/auth_context'
 
+import styles from './DataAnalized.module.css'
+
+
 const DataAnalized = ({ journals }) => {
 
     const { user } = useAuth()
@@ -18,7 +21,7 @@ const DataAnalized = ({ journals }) => {
         const apiCall = async () => {
             console.log(`API call triggered with journals: ${userName} - ${journals}`); // Debug log
             try {
-                const response = await geminiCall({ user , journals });
+                const response = await geminiCall({ user, journals });
                 console.log("API response:", response); // Debug log
                 setApiResponse(response)
 
@@ -33,7 +36,12 @@ const DataAnalized = ({ journals }) => {
 
 
     return (
-        <ReactMarkdown>{apiResponse}</ReactMarkdown>
+
+        <>
+            <div className={styles.apiResponseContainer} >
+                <ReactMarkdown>{apiResponse}</ReactMarkdown>
+            </div>
+        </>
     )
 }
 
