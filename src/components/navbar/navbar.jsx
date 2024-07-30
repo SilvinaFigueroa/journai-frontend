@@ -1,11 +1,19 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../contexts/auth/auth_context'
 
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
 
   const [menuActive, setMenuActive] = useState(false);
+
+  const { user, logOut } = useAuth()
+
+  // Include logOut when user is logged in
+  const handleLogout = () => {
+    logOut();
+  }
 
   // toggle for hamburguer menu on mobile
   const toggleMenu = () => {
@@ -26,22 +34,36 @@ const Navbar = () => {
         </button>
         {/* Navbar links with conditional rendering -mobile- */}
         <ul className={`${styles.NavbarMenu} ${menuActive ? styles.active : ''}`}>
-          <li className={styles.NavbarItem}>
-            <a href="/journal" className={styles.NavbarLink}>Journal</a>
-          </li>
-          <li className={styles.NavbarItem}>
-            <a href="/insights" className={styles.NavbarLink}>Insights</a>
-          </li>
-          <li className={styles.NavbarItem}>
-            <Link to="/login" className={styles.NavbarButton}>Login</Link>
-          </li>
-          <li className={styles.NavbarItem}>
-            <Link to="/signup" className={styles.NavbarButtonPrimary}>Sign Up</Link>
-          </li>
+          {/* Conditional rendering links for logged user */}
+          {user && (
+            <>
+              <li className={styles.NavbarItem}>
+                <a href="/journal" className={styles.NavbarLink}>Journal</a>
+              </li>
+              <li className={styles.NavbarItem}>
+                <a href="/insights" className={styles.NavbarLink}>Insights</a>
+              </li>
+            </>
+          )}
         </ul>
+
+        {/* conditinal rendering: user logged - name + logOut button, else login + signUp button */}
+        <div className={styles.NavbarButtons}>
+          {user ? (
+            <>
+              <span className={styles.NavbarUserName}>{user.firstName}</span>
+              <button onClick={handleLogout} className={styles.NavbarButton}>Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className={styles.NavbarButton}>Login</Link>
+              <Link to="/signup" className={styles.NavbarButtonPrimary}>Sign Up</Link>
+            </>
+          )}
+        </div>
       </div>
     </nav >
-  );
+  )
 }
 
 export default Navbar
