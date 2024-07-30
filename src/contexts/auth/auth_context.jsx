@@ -48,6 +48,9 @@ export const UserProvider = ({ children }) => {
 
         } catch (err) {
             console.error(err)
+            // Including error throw to manage the IU messages
+            throw new Error(err.response?.data?.errors[0]?.msg || 'Invalid login credentials');
+
         }
     }
 
@@ -77,6 +80,9 @@ export const UserProvider = ({ children }) => {
 
         } catch (err) {
             console.error(err)
+            // Including error throw to manage the IU messages
+            throw new Error(err.response?.data?.errors[0]?.msg || 'Invalid login credentials');
+
         }
     }
 
@@ -91,7 +97,7 @@ export const UserProvider = ({ children }) => {
 
     // With useMemo, the value object is only recreated when the user or token changes
     const value = useMemo(() => ({
-        login, logOut, signUp, token: cookies.token , user
+        login, logOut, signUp, token: cookies.token, user
     }), [cookies.token, user])
 
     // pass the cookie value (token) to the context provider

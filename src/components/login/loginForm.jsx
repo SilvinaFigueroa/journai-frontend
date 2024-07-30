@@ -6,7 +6,7 @@ import { useAuth } from '../../contexts/auth/auth_context'
 import './loginForm.css' //import styling css file
 
 
-const LoginForm = ({ setNewUser }) => {
+const LoginForm = () => {
 
     const nav = useNavigate()
     // get the login function from the auth_context
@@ -16,6 +16,9 @@ const LoginForm = ({ setNewUser }) => {
         email: '',
         password: ''
     })
+
+    // Save the erros to manage the IU
+    const [errorMessage, setErrorMessage] = useState('');
 
     // Setting the formData when the form fields change to update the State
     const handleChange = (event) => {
@@ -28,17 +31,24 @@ const LoginForm = ({ setNewUser }) => {
 
     // When form is submited
     const handleSubmit = async (event) => {
-        console.log(`data to be sent for login ${JSON.stringify(formData)}`)
+        // console.log(`data to be sent for login ${JSON.stringify(formData)}`)
         event.preventDefault()
-        await login(formData)
-        console.log("Auth Sucessful")
-        // redirect to the journal entry page after login
-        nav('/journal')
+        try {
+            await login(formData)
+            console.log("Auth Sucessful")
+            // redirect to the journal entry page after login
+            nav('/journal')
+        } catch (err) {
+            console.error(err)
+            setErrorMessage('Invalid Credentials.');
+
+        }
+
     }
 
     const handleClick = () => {
         nav('/signup')
-    } 
+    }
 
     return (
         <div className="login-container">
@@ -51,6 +61,12 @@ const LoginForm = ({ setNewUser }) => {
                     <form autoComplete="off" onSubmit={handleSubmit}>
                         <input className="input-group" type="email" id="email" name="email" placeholder="Email" required onChange={handleChange} />
                         <input className="input-group" type="password" id="password" name='password' placeholder="Password" required minLength='6' onChange={handleChange} />
+
+                        {/* conditional rendering for error message */}
+                        {errorMessage && (
+                            <div className="errorMessage">{errorMessage}</div>
+                        )}
+
                         <button className="login-button" type="submit">Log In</button>
                     </form>
                     {/* Include SignUp button that toggles setNewUser */}
