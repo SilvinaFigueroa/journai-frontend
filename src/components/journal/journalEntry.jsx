@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useAuth } from '../../contexts/auth/auth_context'
 import axios from 'axios'
 
+import styles from './Journal.module.css'
 
-const JournalEntry = ({ journal, refreshData}) => {
+const JournalEntry = ({ journal, refreshData }) => {
   // journal: Contains the data for the journal entry
   // refreshData: function to Re-fetch data after deletion to update search
 
@@ -23,8 +24,8 @@ const JournalEntry = ({ journal, refreshData}) => {
         {
           headers: { 'x-auth-token': token }
         })
-        console.log(`Record Deleted`)
-        refreshData(); // Re-fetch data after deletion
+      console.log(`Record Deleted`)
+      refreshData(); // Re-fetch data after deletion
 
     } catch (err) {
       console.error(err)
@@ -47,9 +48,9 @@ const JournalEntry = ({ journal, refreshData}) => {
           headers: { 'x-auth-token': token }
         })
 
-        console.log(`Record Updated`)
-        refreshData(); // Re-fetch data after deletion
-        setEdit(false) // Set value to false to hide the edit mode 
+      console.log(`Record Updated`)
+      refreshData(); // Re-fetch data after deletion
+      setEdit(false) // Set value to false to hide the edit mode 
 
     } catch (err) {
       console.error(err)
@@ -60,23 +61,33 @@ const JournalEntry = ({ journal, refreshData}) => {
 
   return (
     <>
-      <div>
+      <div className={styles.journalEntry}>
         {/* Conditional Rendering for edit journal record */}
         {edit ? (
-          <form onSubmit={handleUpdate}>
-            <textarea value={editedContent} onChange={(e) => setEditedContent(e.target.value)} required />
-            <input value={editedMood} onChange={(e) => setEditedMood(e.target.value)} required />
-            <input value={editedLocation} onChange={(e) => setEditedLocation(e.target.value)} required />
+          <form className={styles.journalEntryEditForm} onSubmit={handleUpdate}>
+
+            <label>
+              Content:
+              <textarea value={editedContent} onChange={(e) => setEditedContent(e.target.value)} required />
+            </label>
+            <label>
+              Mood:
+              <input value={editedMood} onChange={(e) => setEditedMood(e.target.value)} required />
+            </label>
+            <label>
+              Location:
+              <input value={editedLocation} onChange={(e) => setEditedLocation(e.target.value)} required />
+            </label>
 
             <button type="submit">Save Editions</button>
             {/* When cancel edition, set value to false to hide the edit mode  */}
             <button type="button" onClick={() => setEdit(false)}>Cancel</button>
           </form>
         ) : (
-          <div>
-            <p>{journal.content}</p>
-            <p>{journal.inputMood}</p>
-            <p>{journal.location}</p>
+          <div className={styles.journalField}>
+            <p><strong>Content:</strong> {journal.content}</p>
+            <p><strong>Mood:</strong> {journal.inputMood} <strong>Location:</strong> {journal.location} <strong>Weather:</strong> {journal.weatherData}</p>
+            <p><strong>Date:</strong> {journal.createdAt.split('T')[0]}</p>
             {/* When click Edit Entry button, set edit value to true to show the edit mode  */}
             <button onClick={() => setEdit(true)}>Edit Entry</button>
             <button onClick={handleDelete}>Delete</button>

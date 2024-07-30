@@ -4,6 +4,9 @@ import { useAuth } from '../../contexts/auth/auth_context'
 
 // Components
 import JournalEntry from './journalEntry'
+// Style
+import styles from './Journal.module.css'
+
 
 const SearchJournal = () => {
 
@@ -61,27 +64,28 @@ const SearchJournal = () => {
     return (
 
         <>
-            <div>
-                <form onSubmit={handleSearch}>
-                    <label> Date From
-                        <input type='date' value={startDate}
-                            onChange={(event) => setStartDate(event.target.value)} required /></label>
-                    <label> Date To
-                        <input type='date' value={endDate}
-                            onChange={(event) => setEndDate(event.target.value)} required /></label>
+            <div className={styles.journalContainer}>
+                <h3>Search your journal entries by data range:</h3>
+                <div className={styles.journalSearch}>
+                    <form onSubmit={handleSearch}>
+                        <label className={styles.dateLabel} > Date From
+                            <input type='date' value={startDate}
+                                onChange={(event) => setStartDate(event.target.value)} required /></label>
+                        <label className={styles.dateLabel} > Date To
+                            <input type='date' value={endDate}
+                                onChange={(event) => setEndDate(event.target.value)} required /></label>
 
-                    <button type='submit'>Search</button>
-                </form>
-
-                <h2>Results</h2>
-                <div>
+                        <button type='submit' className={styles.searchButton}>Search</button>
+                    </form>
+                </div>
+                <div className={styles.journalEntries}>
                     {searchResults.map(journal => (
                         // Use journalEntry component to display each journal 
                         <JournalEntry
                             key={journal._id} // used internally by React to keep track of elements in a list (not passed as props)
                             journal={journal}
                             token={token}
-                            refreshData={refreshData} 
+                            refreshData={refreshData}
                         />
                     ))}
                 </div>

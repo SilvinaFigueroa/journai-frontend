@@ -1,0 +1,278 @@
+/* Journal Page */
+
+.journalPage {
+    padding: 0.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.journalPage h1 {
+    text-align: center;
+    color: #9f0bb9;
+}
+
+/* New Journal Entry */
+
+.journalContainer {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.journalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.journalForm label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.journalForm textarea::placeholder {
+    font-family: "Comfortaa", sans-serif;
+    color: #aaa;
+}
+
+.journalForm input,
+.journalForm textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.journalForm textarea {
+    height: 150px;
+    resize: vertical;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.journalForm button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 15px;
+    background-color: #8735bb;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.journalForm button:hover {
+    background-color: #3b9769;
+}
+
+/* Search Journal  and Results*/
+
+.journalSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dateLabel {
+    font-size: 1rem;
+    color: #333;
+    gap: 1rem;
+}
+
+.dateInput {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.searchButton {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 15px;
+    background-color: #3b9769;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+    background-color: #50045c;
+}
+
+.journalEntries {
+    margin-top: 1rem;
+}
+
+.journalEntry {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+
+.journalEntry p {
+    margin: 0.5rem 0;
+}
+
+.journalEntry button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #8735bb;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+.journalEntry button:hover {
+    background-color: #3b9769;
+}
+
+.journalEntryEditForm label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+    width: 100%
+}
+
+.journalEntryEditForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.journalEntryEditForm textarea,
+.journalEntryEditForm input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.journalEntryEditForm button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 15px;
+    background-color: #8735bb;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 80%;
+}
+
+.journalEntryEditForm button:hover {
+    background-color: #3b9769;
+}
+
+.journalField {
+    margin-bottom: 1rem;
+}
+
+.journalField p {
+    margin: 0.5rem 0;
+}
+
+.journalField strong {
+    font-weight: bolder;
+    color: #9f0bb9;
+}
+
+/* Moods icons */
+
+.radioGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.radioGroup label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.radioGroup label img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Date picker  */
+
+.dateRange {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.dateRange label {
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+}
+
+.dateRange input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Results Header */
+
+.resultsHeader {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .journalContainer {
+        padding: 1rem;
+        margin: 1rem;
+        max-width: 100%;
+    }
+
+    .journalForm button {
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .radioGroup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .radioGroup label {
+        gap: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .dateRange {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .dateRange label {
+        font-size: 1rem;
+    }
+}
