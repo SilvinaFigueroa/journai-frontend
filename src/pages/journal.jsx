@@ -19,9 +19,9 @@ const Journal = () => {
     return (
         <div>
             {/* conditional render for user name */}
-            <h1>{user ? `${user.firstName}'s Journal` : 'Journal'}</h1>
+                <h1>{user ? `${user.firstName}'s Journal` : 'Journal'}</h1>
 
-            <NewJournalEntry/>
+            <NewJournalEntry/>  
             <SearchJournal/>
             <button onClick={redirectInsights}>View Insights</button>
             <button onClick={handleClick}>Logout</button>

@@ -1,0 +1,157 @@
+
+
+/* Banner Component */
+
+.BannerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem;
+    flex-wrap: wrap;
+
+}
+
+.BannerLeftSide {
+    flex: 1;
+    padding: 2rem;
+}
+
+.BannerLeftSide h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 900;
+}
+
+.BannerLeftSide p {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.BannerLeftSide button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #8735bb;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.BannerLeftSide button:hover {
+    background-color: #3b9769;
+}
+
+.BannerRigthSide {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BannerRigthSide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsiviness  */
+
+@media (max-width: 768px) {
+    .BannerContainer {
+        flex-direction: column;
+    }
+
+    .BannerLeftSide h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .BannerLeftSide p {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+
+ /* Features Component */
+
+.FeaturesList {
+    text-align: center;
+    padding: 2rem;
+}
+
+.FeaturesList h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.FeaturesList p {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.FeatureContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.FeatureItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    margin: 1rem 0;
+}
+
+.FeatureItem img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.FeatureItem h3 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #333;
+    margin-bottom: 1rem;
+    
+}
+
+.FeatureItem p {
+    color: #555;
+    text-align: center;
+    font-size: 1rem;
+    margin: 0 1rem 1.5rem 1rem;
+}
+
+/* Responsiviness  */
+
+@media (max-width: 768px) {
+    .FeatureItem {
+        width: 80%;
+    }
+
+    .FeatureItem img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .FeatureItem h3 {
+        font-size: 1rem;
+    }
+
+    .FeatureItem p {
+        font-size: 0.875rem;
+    }
+}

@@ -1,19 +1,12 @@
 
-body {
-    font-family: "Comfortaa", sans-serif;
-    background: linear-gradient(to right, #6874E7, #84CFAF);
-    height: 100vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
 
 .login-container {
+    background: linear-gradient(to right, #6874E7, #84CFAF);
+    height: 100vh;
+    width: 100vw; 
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 .login-box {
