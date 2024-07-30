@@ -1,12 +1,11 @@
 import styles from './Footer.module.css'
-import '../../../public/static'
 
 
 const Footer = () => {
     return (
         <footer className={styles.Footer}>
             <div className={styles.FooterContent}>
-                <img src={"public/static/images/logo.jpg"} alt="Journ AI Logo" className={styles.FooterLogo} />
+                <img src="/static/images/logo.jpg" alt="Journ AI Logo" className={styles.FooterLogo} />
                 <p className={styles.Quote}>Express your thoughts, track your moods, and uncover meaningful insights</p>
             </div>
             <div className={styles.Copyright}>

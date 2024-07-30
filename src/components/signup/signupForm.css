@@ -21,7 +21,7 @@
     border-radius: 15px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     position: relative;
-    background-image: url("public/static/images/circles-dot.svg");
+    background-image: url("/static/images/circles-dot.svg");
     background-position:-85% -270%;
     background-repeat: no-repeat;
     background-size: 500px;

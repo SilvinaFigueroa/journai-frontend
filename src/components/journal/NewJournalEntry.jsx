@@ -4,7 +4,6 @@ import axios from 'axios'
 import weatherApi from '../../api/weather.mjs'
 
 import styles from './Journal.module.css'
-import '../../../public/static'
 
 const NewJournalEntry = () => {
 
@@ -85,7 +84,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Very Happy'}
                                 onChange={handleMoodChange}
                             />
-                            <img src={"public/static/images/winking.png"} alt="Very Happy" />
+                            <img src="/static/images/winking.png" alt="Very Happy" />
                             Very Happy
                         </label>
                         <label>
@@ -95,7 +94,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Happy'}
                                 onChange={handleMoodChange}
                             />
-                            <img src={"public/static/images/laughing.png"} alt="Happy" />
+                            <img src="/static/images/laughing.png" alt="Happy" />
                             Happy
                         </label>
                         <label>
@@ -105,7 +104,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Neutral'}
                                 onChange={handleMoodChange}
                             />
-                            <img src={"public/static/images/no-expression.png"} alt="Neutral" />
+                            <img src="/static/images/no-expression.png" alt="Neutral" />
                             Neutral
                         </label>
                         <label>
@@ -115,7 +114,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Sad'}
                                 onChange={handleMoodChange}
                             />
-                            <img src={"public/static/images/crying.png"} alt="Sad" />
+                            <img src="/static/images/crying.png" alt="Sad" />
                             Sad
                         </label>
                         <label>
@@ -125,7 +124,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Angry'}
                                 onChange={handleMoodChange}
                             />
-                            <img src={"public/static/images/annoyed.png"} alt="Angry" />
+                            <img src="/static/images/annoyed.png" alt="Angry" />
                             Angry
                         </label>
                         <label>
@@ -135,7 +134,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Tired'}
                                 onChange={handleMoodChange}
                             />
-                            <img src={"public/static/images/sleepy.png"} alt="Sleepy" />
+                            <img src="/static/images/sleepy.png" alt="Sleepy" />
                             Tired
                         </label>
                     </div>

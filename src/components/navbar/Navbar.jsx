@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/auth/auth_context'
 
 import styles from './Navbar.module.css'
-import '../../../public/static'
 
 
 const Navbar = () => {
@@ -28,7 +27,7 @@ const Navbar = () => {
       <div className={styles.NavbarContainer}>
 
         <Link to="/" className={styles.NavbarLogo}>
-          <img src={"public/static/images/logo.jpg"} alt="Journ AI Logo" className={styles.NavbarLogoImage} />
+          <img src="/static/images/logo.jpg" alt="Journ AI Logo" className={styles.NavbarLogoImage} />
         </Link>
 
         <button className={styles.NavbarToggle} onClick={toggleMenu}>
