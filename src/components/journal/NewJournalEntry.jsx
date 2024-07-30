@@ -4,7 +4,7 @@ import axios from 'axios'
 import weatherApi from '../../api/weather.mjs'
 
 import styles from './Journal.module.css'
-
+import '../../../public/static'
 
 const NewJournalEntry = () => {
 

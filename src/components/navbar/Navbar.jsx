@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/auth/auth_context'
 
 import styles from './Navbar.module.css'
+import '../../../public/static'
+
 
 const Navbar = () => {
 

@@ -1,4 +1,6 @@
 import styles from './Footer.module.css'
+import '../../../public/static'
+
 
 const Footer = () => {
     return (
