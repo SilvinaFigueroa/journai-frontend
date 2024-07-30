@@ -1,6 +1,7 @@
 
 import Banner from "../components/home/Banner"
 import Features from "../components/home/Features"
+import Navbar from "../components/navbar/Navbar"
 
 
 
@@ -8,6 +9,7 @@ import Features from "../components/home/Features"
 const home = () => {
   return (
     <>
+    <div><Navbar/></div>
     <div><Banner/></div>
     <div><Features/></div>
     </>
