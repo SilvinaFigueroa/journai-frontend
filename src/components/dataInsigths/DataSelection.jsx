@@ -66,7 +66,18 @@ const DataSelection = () => {
     return (
         <>
             <div className={styles.dataSelectionContainer}>
-                <h1>Data Insights</h1>
+                <div className={styles.insightsContainer}>
+                    <h1>Data Insights</h1>
+                    <img src="src\images\star.svg" alt="Star" className={styles.insightsImage} />
+                </div>
+                <p>
+                    In this section, you can explore insights about your moods and emotions over time. <br />
+                    Using advanced AI algorithms, we analyze your journal entries to find patterns,
+                    summarize feelings, and provide you with a deeper understanding of your emotional state. <br />
+                    <br />
+                    Discover how your moods fluctuate and uncover the key factors influencing your wellbeing.
+                </p>
+                <hr />
                 <h4>Select Data Range</h4>
                 <form className={styles.dataSelectionForm} onSubmit={handleSearch}>
                     <div className={styles.radioGroup}>

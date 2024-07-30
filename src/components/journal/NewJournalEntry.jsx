@@ -69,11 +69,14 @@ const NewJournalEntry = () => {
 
         <>
             <div className={styles.journalContainer}>
+                <p>Please use the form below to record your thoughts and feelings. This will help you track your mood and reflect on your experiences.</p>
                 <form className={styles.journalForm} onSubmit={handleSubmit}>
                     <div className='journalEntry'>
                         <textarea value={entry} onChange={handleEntryChange} placeholder='Tell me about your day...!' required />
-                    </div>
+                        <p className={styles.instructions}>Enter detailed thoughts. This can include events, feelings, and anything else you want to document.</p>
+                        </div>
                     <h3>How are you feeling overall today?</h3>
+                    <p className={styles.instructions}>Select the emoji that best represents your overall mood for the day.</p>
                     <div className={styles.radioGroup}>
                         <label>
                             <input
