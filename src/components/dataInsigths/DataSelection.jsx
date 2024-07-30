@@ -92,7 +92,7 @@ const DataSelection = () => {
                         />
                         Last 6 Months
                     </label>
-                    <button type="submit">Get Insigths</button>
+                    <button type="submit">Get Insights</button>
                 </form>
             </div>
             <div>

@@ -25,9 +25,10 @@ const Navbar = () => {
 
       <div className={styles.NavbarContainer}>
 
-        <a href="/" className={styles.NavbarLogo}>
+        <Link to="/" className={styles.NavbarLogo}>
           <img src="src/images/logo.jpg" alt="Journ AI Logo" className={styles.NavbarLogoImage} />
-        </a>
+        </Link>
+
         <button className={styles.NavbarToggle} onClick={toggleMenu}>
           {/* hamburger menu icon */}
           &#9776;
@@ -38,10 +39,10 @@ const Navbar = () => {
           {user && (
             <>
               <li className={styles.NavbarItem}>
-                <a href="/journal" className={styles.NavbarLink}>Journal</a>
+                <Link to="/journal" className={styles.NavbarLink}>Journal</Link>
               </li>
               <li className={styles.NavbarItem}>
-                <a href="/insights" className={styles.NavbarLink}>Insights</a>
+                <Link to="/insights" className={styles.NavbarLink}>Insights</Link>
               </li>
             </>
           )}

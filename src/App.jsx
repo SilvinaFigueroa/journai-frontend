@@ -4,7 +4,7 @@ import ProtectedRoutes from './components/ProtectedRoutes/routesAuth'
 
 import LoginSignUp from './pages/login'
 import Journal from './pages/journal'
-import Insigths from './pages/insigths'
+import Insights from './pages/insights'
 import Home from './pages/home'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
@@ -24,7 +24,7 @@ function App() {
         <Route element={<ProtectedRoutes />}>
           {/* Wrap protected content on the protected route */}
           <Route path='/journal' element={<Journal />} />
-          <Route path='/insigths' element={<Insigths />} />
+          <Route path='/insights' element={<Insights />} />
         </Route>
       </Routes>
       <Footer/>

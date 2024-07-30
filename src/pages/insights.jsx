@@ -1,10 +1,10 @@
 
 import DataSelection from "../components/dataInsigths/DataSelection"
 
-const Insigths = () => {
+const Insights = () => {
   return (
     <>
-      <h1>Data Insigths</h1>
+      <h1>Data Insights</h1>
 
       <h5>Select Data Range</h5>
       <DataSelection />
@@ -12,4 +12,4 @@ const Insigths = () => {
   )
 }
 
-export default Insigths
+export default Insights
