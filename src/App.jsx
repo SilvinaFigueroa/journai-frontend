@@ -1,7 +1,6 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate} from 'react-router-dom'
 import ProtectedRoutes from './components/ProtectedRoutes/routesAuth'
-import { Navigate } from "react-router-dom"
 
 
 import LoginSignUp from './pages/login'
