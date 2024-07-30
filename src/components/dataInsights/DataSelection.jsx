@@ -114,7 +114,7 @@ const DataSelection = () => {
             </div>
             <div>
                 {/* Conditional rendering: If journals data is fetched, pass it to DataAnalized component */}
-                {loading ? <p className={styles.loadingMessage} >Loading Data...</p> : journalsEntry.length > 0 && <DataAnalized journals={journalsEntry} />}
+                {loading? <p className={styles.loadingMessage} >Loading Data...</p> : journalsEntry.length > 0 && <DataAnalized journals={journalsEntry} />}
             </div>
         </>
     )

@@ -12,7 +12,6 @@ const DataAnalized = ({ journals }) => {
 
     const { user } = useAuth()
     const [apiResponse, setApiResponse] = useState("") // api response 
-    const userName = user.firstName
 
 
     useEffect(() => {
