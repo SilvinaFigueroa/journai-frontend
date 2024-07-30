@@ -6,6 +6,8 @@ import LoginSignUp from './pages/login'
 import Journal from './pages/journal'
 import Insigths from './pages/insigths'
 import Home from './pages/home'
+import Navbar from './components/navbar/Navbar'
+import Footer from './components/footer/Footer'
 
 
 
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <>
+    <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>} />
         {/* Including one route for login and another for SignUp to redirect navBar buttons */}
@@ -24,6 +27,7 @@ function App() {
           <Route path='/insigths' element={<Insigths />} />
         </Route>
       </Routes>
+      <Footer/>
     </>
   )
 }

@@ -9,7 +9,6 @@ import Navbar from "../components/navbar/Navbar"
 const home = () => {
   return (
     <>
-    <div><Navbar/></div>
     <div><Banner/></div>
     <div><Features/></div>
     </>

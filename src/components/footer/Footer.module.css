@@ -1,0 +1,43 @@
+
+.Footer {
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid #b3b3b3;
+    margin-top: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.FooterContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.FooterLogo {
+    max-height: 80px; 
+    margin-bottom: 1rem;
+}
+
+.Quote {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+}
+
+.Copyright {
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.GitHubLink {
+    color: #3f07a7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.GitHubLink:hover {
+    color: #510e7a;
+    text-decoration: underline;
+}

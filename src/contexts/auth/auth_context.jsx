@@ -1,4 +1,6 @@
-import { createContext, useContext, useMemo, useState } from "react"
+import { createContext, useContext, useMemo, useState, } from "react"
+import { useNavigate } from "react-router-dom"
+
 import { useCookies } from "react-cookie"
 import axios from 'axios'
 
@@ -10,6 +12,8 @@ export const AuthContext = createContext()
 
 //Create Context Provider 
 export const UserProvider = ({ children }) => {
+
+    const navigate = useNavigate()
 
     //Create cookies
     const [cookies, setCookies, removeCookie] = useCookies(["token"])
@@ -90,6 +94,7 @@ export const UserProvider = ({ children }) => {
         // Remove cookies (use removeCookie -singular-)
         ['token'].forEach((obj) => removeCookie(obj))
         setUser(null) // removing user data
+        navigate('/')
     }
 
 

@@ -19,7 +19,6 @@ const Journal = () => {
     }
     return (
         <>
-            <Navbar/>
             <div>
                 {/* conditional render for user name */}
                 <h1>{user ? `${user.firstName}'s Journal` : 'Journal'}</h1>

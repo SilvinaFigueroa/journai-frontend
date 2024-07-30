@@ -51,8 +51,8 @@ const Navbar = () => {
         <div className={styles.NavbarButtons}>
           {user ? (
             <>
-              <span className={styles.NavbarUserName}>{user.firstName}</span>
-              <button onClick={handleLogout} className={styles.NavbarButton}>Logout</button>
+              <span className={styles.NavbarUserName}>{`Hi ${user.firstName}`}</span>
+              <button onClick={handleLogout} className={styles.NavbarButtonPrimary}>Logout</button>
             </>
           ) : (
             <>

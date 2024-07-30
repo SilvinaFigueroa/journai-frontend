@@ -24,6 +24,13 @@
     max-height: 120px; 
 }
 
+.NavbarUserName {
+    color: #19c124;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-right: 1rem;
+}
+
 .NavbarMenu {
     display: flex;
     justify-content: center;
@@ -75,8 +82,10 @@
 .NavbarButtonPrimary {
     color: #fff;
     background-color: #8735bb;
+    font-family: "Comfortaa", sans-serif;
+    border: #8735bb;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
+    border-radius: 10px;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
