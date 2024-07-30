@@ -85,7 +85,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Very Happy'}
                                 onChange={handleMoodChange}
                             />
-                            <img src='src/images/winking.png' alt="Very Happy" />
+                            <img src='public/images/winking.png' alt="Very Happy" />
                             Very Happy
                         </label>
                         <label>
@@ -95,7 +95,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Happy'}
                                 onChange={handleMoodChange}
                             />
-                            <img src='src/images/laughing.png' alt="Happy" />
+                            <img src='public/images/laughing.png' alt="Happy" />
                             Happy
                         </label>
                         <label>
@@ -105,7 +105,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Neutral'}
                                 onChange={handleMoodChange}
                             />
-                            <img src='src/images/no-expression.png' alt="Neutral" />
+                            <img src='public/images/no-expression.png' alt="Neutral" />
                             Neutral
                         </label>
                         <label>
@@ -115,7 +115,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Sad'}
                                 onChange={handleMoodChange}
                             />
-                            <img src='src/images/crying.png' alt="Sad" />
+                            <img src='public/images/crying.png' alt="Sad" />
                             Sad
                         </label>
                         <label>
@@ -125,7 +125,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Angry'}
                                 onChange={handleMoodChange}
                             />
-                            <img src='src/images/annoyed.png' alt="Angry" />
+                            <img src='public/images/annoyed.png' alt="Angry" />
                             Angry
                         </label>
                         <label>
@@ -135,7 +135,7 @@ const NewJournalEntry = () => {
                                 checked={mood === 'Tired'}
                                 onChange={handleMoodChange}
                             />
-                            <img src='src/images/sleepy.png' alt="Sleepy" />
+                            <img src='public/images/sleepy.png' alt="Sleepy" />
                             Tired
                         </label>
                     </div>

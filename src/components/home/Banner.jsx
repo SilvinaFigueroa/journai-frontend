@@ -14,7 +14,7 @@ const home = () => {
 
                 </div>
                 <div className={styles.BannerRigthSide}>
-                    <img src="src\images\hero-square.svg" alt="hero square image" />
+                    <img src="public\images\hero-square.svg" alt="hero square image" />
                 </div>
             </div>
         </>

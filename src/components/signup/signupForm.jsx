@@ -55,9 +55,6 @@ const SignUp = ({ setNewUser }) => {
 
         <div className="signUp-container">
             <div className="signUp-box">
-                {/* <div className="signUp-left">
-                    <img src="src\images\circles-dot.svg" alt="SignUp" />
-                </div> */}
                 <div className="signUp-rigth">
                     <h2>Sign Up</h2>
                     <form autoComplete="off" onSubmit={handleSubmit}>
