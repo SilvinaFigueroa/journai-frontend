@@ -68,10 +68,10 @@ const SearchJournal = () => {
                 <h3>Search your journal entries by data range:</h3>
                 <div className={styles.journalSearch}>
                     <form onSubmit={handleSearch}>
-                        <label className={styles.dateLabel} > Date From
+                        <label className={styles.dateLabel} > Date From : 
                             <input type='date' value={startDate}
                                 onChange={(event) => setStartDate(event.target.value)} required /></label>
-                        <label className={styles.dateLabel} > Date To
+                        <label className={styles.dateLabel} > Date To :
                             <input type='date' value={endDate}
                                 onChange={(event) => setEndDate(event.target.value)} required /></label>
 

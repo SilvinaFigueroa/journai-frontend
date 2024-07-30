@@ -92,6 +92,7 @@
 
 .searchButton {
     padding: 0.75rem 1.5rem;
+    margin-left: 20px;
     border: none;
     border-radius: 15px;
     background-color: #3b9769;
@@ -168,7 +169,7 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 80%;
+    width: 100%;
 }
 
 .journalEntryEditForm button:hover {
@@ -194,7 +195,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    align-items: center;
 }
 
 .radioGroup label {
@@ -265,6 +265,14 @@
     .radioGroup label {
         gap: 0.5rem;
         font-size: 1rem;
+        display: flex;
+        align-items: center;
+        margin-left: 35%;
+        width: 10%;
+        
+    }
+    .radioGroup input {
+        margin-right: 0.5rem;
     }
 
     .dateRange {
@@ -275,4 +283,8 @@
     .dateRange label {
         font-size: 1rem;
     }
+
+    .searchButton {
+        margin-top: 15px;
+    }   
 }
