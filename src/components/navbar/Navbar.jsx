@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className={styles.NavbarContainer}>
 
         <Link to="/" className={styles.NavbarLogo}>
-          <img src="public/images/logo.jpg" alt="Journ AI Logo" className={styles.NavbarLogoImage} />
+          <img src={"public/static/images/logo.jpg"} alt="Journ AI Logo" className={styles.NavbarLogoImage} />
         </Link>
 
         <button className={styles.NavbarToggle} onClick={toggleMenu}>
