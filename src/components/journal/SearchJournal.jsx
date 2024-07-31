@@ -22,7 +22,7 @@ const SearchJournal = () => {
     const handleSearch = async (event) => {
         event.preventDefault()
         try {
-            const response = await axios.get('https://journai-backend.onrender.com/journal/search', {
+            const response = await axios.get('https://journai-server.vercel.app/journal/search', {
                 params: {
                     userReference: user.email,
                     startDate: new Date(startDate).toISOString().split('T')[0],
@@ -43,7 +43,7 @@ const SearchJournal = () => {
     // After Delete or Edit a record, refresh the search data
     const refreshData = async () => {
         try {
-            const response = await axios.get('https://journai-backend.onrender.com/journal/search', {
+            const response = await axios.get('https://journai-server.vercel.app/journal/search', {
                 params: {
                     userReference: user.email,
                     startDate,

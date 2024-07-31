@@ -20,7 +20,7 @@ const JournalEntry = ({ journal, refreshData }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://journai-backend.onrender.com/journal/delete/${journal._id}`,
+      await axios.delete(`https://journai-server.vercel.app/journal/delete/${journal._id}`,
         {
           headers: { 'x-auth-token': token }
         })
@@ -38,7 +38,7 @@ const JournalEntry = ({ journal, refreshData }) => {
 
     try {
 
-      await axios.put(`https://journai-backend.onrender.com/journal/update/${journal._id}`,
+      await axios.put(`https://journai-server.vercel.app/journal/update/${journal._id}`,
         {
           content: editedContent,
           inputMood: editedMood,

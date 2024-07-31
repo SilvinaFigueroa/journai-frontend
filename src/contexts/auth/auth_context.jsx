@@ -28,7 +28,7 @@ export const UserProvider = ({ children }) => {
             // Make a call to the backend
             let response = await axios({
                 method: 'POST',
-                url: "https://journai-backend.onrender.com/login", // backend url for login
+                url: "https://journai-server.vercel.app/login", // backend url for login
                 data: formData
             })
             // Set the recived token on the cookies
@@ -60,7 +60,7 @@ export const UserProvider = ({ children }) => {
             // Make a call to the backend                
             let response = await axios({
                 method: 'POST',
-                url: "https://journai-backend.onrender.com/user/new", // backend url for user creation
+                url: "https://journai-server.vercel.app/user/new", // backend url for user creation
                 data: formData
             })
 

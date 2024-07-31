@@ -41,7 +41,7 @@ const NewJournalEntry = () => {
             const weatherData = await weatherApi({ city: location })
             console.log(`Weather data: ${weatherData}`)
 
-            const response = await axios.post('https://journai-backend.onrender.com/journal/new', {
+            const response = await axios.post('https://journai-server.vercel.app/journal/new', {
                 email,
                 content: entry,
                 weatherData,

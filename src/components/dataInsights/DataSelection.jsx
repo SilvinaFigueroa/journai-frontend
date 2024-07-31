@@ -32,7 +32,7 @@ const DataSelection = () => {
 
         try {
             setLoading(true) // Set loading to true before starting the fetch
-            const response = await axios.get('https://journai-backend.onrender.com/journal/search', {
+            const response = await axios.get('https://journai-server.vercel.app/journal/search', {
                 params: {
                     userReference: user.email,
                     startDate,
