@@ -3,7 +3,7 @@ import axios from "axios"
 const apiKey = import.meta.env.VITE_WEATHER_KEY
 
 const weatherApi = async ({ city }) => {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
 
 
     try {
